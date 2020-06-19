@@ -31,6 +31,6 @@ end
 gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails'
 gem 'simple_form'
-gem 'devise', '~> 4.6.1'
+gem 'devise', '~> 4.7.1'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
