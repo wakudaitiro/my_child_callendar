@@ -17,6 +17,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    # binding.pry
     @event.save
   end
 
@@ -34,6 +35,6 @@ class EventsController < ApplicationController
     end
 
     def event_params
-      params.require(:event).permit(:title, :date_range, :start, :end, :color)
+      params.require(:event).permit(:title, :start, :end, :color)
     end
 end
