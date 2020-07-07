@@ -3,6 +3,8 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.where(start: params[:start]..params[:end])
+    json = @events
+    render json: json.to_json
   end
 
   def show
@@ -17,7 +19,6 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    # binding.pry
     @event.save
   end
 
