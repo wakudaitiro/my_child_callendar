@@ -5,12 +5,19 @@
         <%= form.label :icon, "お世話内容", class: "form-control-label"%>
         <%= form.select :icon, [['ミルク', 'milk.png'], ['母乳', 'breastfeeding.png'], ['おしっこ', 'pee.png'], ['うんち', 'poo.png'], ['寝る', 'sleep.png'], ['起きる', 'wake-up.png']], { selected: event.icon }, { class: "form-control input-icon" } %>
       </div>
+
       <div class="form-group">
-          <%= form.label :start, "開始時間", class: "form-control-label"%>
-        <div  id="datetimepicker7" data-target-input="nearest">
+        <%= form.label :color, "色", class: "form-control-label"%>
+        <%= form.select :color, [['グレー', 'gray'], ['緑', 'teal'], ['オレンジ','orange']], { selected: '緑'  }, { class: "form-control" } %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :start, "開始時間", class: "form-control-label"%>
+        <div class="input-group date" id="datetimepicker7" data-target-input="nearest">
           <%= form.text_field :start, class: "form-control input-start", id: "datetimepicker7", data: { target: "#datetimepicker7", toggle: "datetimepicker" } %>
         </div>
       </div>
+
       <div class="form-group"> 
         <%= form.label :end, "終了時間", class: "form-control-label"%>
         <div class="input-group date" id="datetimepicker8" data-target-input="nearest">

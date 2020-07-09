@@ -30,7 +30,6 @@ $(document).ready(function () {
       var calendar = $(this);
       calendar.fullCalendar({
         themeSystem: "bootstrap4",
-        
         displayEventTime: true,
         // displayEventEnd: {
         //   month: true,
@@ -48,9 +47,6 @@ $(document).ready(function () {
         selectable: true,
         ignoreTimezone: false,
         snapDuration: "00:15:00",
-        
-
-        // header
         header: {
           left: "title",
           center: "month,agendaWeek,agendaDay",
@@ -115,9 +111,9 @@ $(document).ready(function () {
         eventRender: function (event, element,start,end) {
           if (event.icon) {
             element
-            .find(".fc-title")
-            .prepend(
-              '<img src=/assets/' + event.icon + ' class="event-img"/>'
+            .find(".fc-time")
+            .append(
+              `<img src=/assets/${event.icon} class="event-img"/>`
             );
           }
         },
@@ -126,7 +122,6 @@ $(document).ready(function () {
   };
   $(document).on("turbolinks:load", initialize_calendar);
 });
-  
 
   //         events: [
   //   {
