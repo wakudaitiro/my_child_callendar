@@ -2,34 +2,25 @@
   <%= form_with(model: @event, remote: true) do |form| %>
     <div class="form-inputs">
       <div class="form-group">
-        <%= form.label :title, class: "form-control-label"%>
-        <%= form.select :title, [['ミルク'], ['母乳'], ['おしっこ'], ['うんち'], ['寝る'], ['起きる']], { selected: event.title }, { class: "form-control" } %>
-
+        <%= form.label :icon, "お世話内容", class: "form-control-label"%>
+        <%= form.select :icon, [['ミルク', 'milk.png'], ['母乳', 'breastfeeding.png'], ['おしっこ', 'pee.png'], ['うんち', 'poo.png'], ['寝る', 'sleep.png'], ['起きる', 'wake-up.png']], { selected: event.icon }, { class: "form-control input-icon" } %>
       </div>
       <div class="form-group">
-        <div class="input-group date" id="datetimepicker7" data-target-input="nearest">
-          <%= form.text_field :start, class: "form-control input-start start_hidden", data: { target: "#datetimepicker7"} %>
-          <div class="input-group-append" data-target="#datetimepicker7" data-toggle="datetimepicker">
-            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-          </div>
+          <%= form.label :start, "開始時間", class: "form-control-label"%>
+        <div  id="datetimepicker7" data-target-input="nearest">
+          <%= form.text_field :start, class: "form-control input-start", id: "datetimepicker7", data: { target: "#datetimepicker7", toggle: "datetimepicker" } %>
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group"> 
+        <%= form.label :end, "終了時間", class: "form-control-label"%>
         <div class="input-group date" id="datetimepicker8" data-target-input="nearest">
-          <%= form.text_field :end, class: "form-control input-end end_hidden", data: { target: "#datetimepicker8"} %>
-          <div class="input-group-append" data-target="#datetimepicker8" data-toggle="datetimepicker">
-            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-          </div>
+          <%= form.text_field :end, class: "form-control input-end", id: "datetimepicker8", data: { target: "#datetimepicker8", toggle: "datetimepicker" } %>
         </div>
       </div>
     </div>
-
-    <img src="https://img.icons8.com/plasticine/100/000000/milk-bottle.png"/>
-
-
     <div class="modal-footer actions">
       <%= form.submit "入力完了", class: "btn btn-primary" %>
-      <%= link_to 'Delete',
+      <%= link_to '削除',
                   event,
                   method: :delete,
                   class: 'btn btn-danger',

@@ -30,6 +30,14 @@ $(document).ready(function () {
       var calendar = $(this);
       calendar.fullCalendar({
         themeSystem: "bootstrap4",
+        
+        displayEventTime: true,
+        // displayEventEnd: {
+        //   month: true,
+        //   basicWeek:true,
+        //   "Default": true
+        // },
+        timeFormat: "HH:mm",
         // emphasizes business hours
         businessHours: false,
         defaultView: "month",
@@ -53,7 +61,8 @@ $(document).ready(function () {
         select: function (start, end) {
           $.getScript("/events/new", function () {
             $("datetimepicker7").datetimepicker({
-              useCurrent: false,
+              // useCurrent: false,
+              // slideBySide: true,
             });
             $("#datetimepicker8").datetimepicker({
               useCurrent: false,
@@ -78,7 +87,6 @@ $(document).ready(function () {
               end: event.end.format(),
             },
           };
-
           var update_url = "/events/" + event.id;
           $.ajax({
             url: update_url,
@@ -88,14 +96,6 @@ $(document).ready(function () {
         },
 
         eventClick: function (event, jsEvent, view) {
-          // $.getScript(event.edit_url, function() {
-          //   $('.start_hidden').val(moment(event.start).format('YYYY-MM-DD HH:mm'));
-          //   $('.end_hidden').val(moment(event.end).format('YYYY-MM-DD HH:mm'));
-          //   $(".event-icon").html("<i class='fa fa-" + event.icon + "'></i>");
-          //   $(".event-title").html(event.title);
-          //   $("#modal-view-event").modal();
-          // });
-
           var edit_url = "/events/" + event.id + "/edit";
           $.getScript(edit_url, function () {
             $("#datetimepicker7").datetimepicker();
@@ -111,34 +111,23 @@ $(document).ready(function () {
           });
         },
 
-        
-        eventRender: function (event, element) {
+
+        eventRender: function (event, element,start,end) {
           if (event.icon) {
             element
             .find(".fc-title")
             .prepend(
-              '<img src=' + event.icon + ' class="event-img"/>'
-              );
-            }
-          },
-          
-          displayEventTime: true,
-          // displayEventEnd: {
-          //   month: true,
-          //   basicWeek:true,
-          //   "Default": true
-          // },
-          timeFormat: "HH:mm",
-          
-          
-        });
+              '<img src=/assets/' + event.icon + ' class="event-img"/>'
+            );
+          }
+        },
       });
-    };
-    $(document).on("turbolinks:load", initialize_calendar);
-  });
+    });
+  };
+  $(document).on("turbolinks:load", initialize_calendar);
+});
   
-  
-  
+
   //         events: [
   //   {
   //     title: "Barber",
