@@ -32,11 +32,11 @@ $(document).ready(function () {
         themeSystem: "bootstrap4",
         
         displayEventTime: true,
-        // displayEventEnd: {
-        //   month: true,
-        //   basicWeek:true,
-        //   "Default": true
-        // },
+          displayEventEnd: {
+            month: true,
+            basicWeek:true,
+            "Default": true
+          },
         timeFormat: "HH:mm",
         // emphasizes business hours
         businessHours: false,
@@ -48,9 +48,6 @@ $(document).ready(function () {
         selectable: true,
         ignoreTimezone: false,
         snapDuration: "00:15:00",
-        
-
-        // header
         header: {
           left: "title",
           center: "month,agendaWeek,agendaDay",
