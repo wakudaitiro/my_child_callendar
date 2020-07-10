@@ -20,8 +20,6 @@
 //= require moment/ja.js
 //= require_tree .
 
-
-
 $(document).ready(function () {
   "use strict";
   // ------------------------------------------------------- //
@@ -107,14 +105,13 @@ $(document).ready(function () {
           });
         },
 
-
-        eventRender: function (event, element,start,end) {
+        eventRender: function (event, element, start, end) {
           if (event.icon) {
             element
-            .find(".fc-time")
-            .append(
-              `<img src=/assets/${event.icon} class="event-img"/>`
-            );
+              .find(".fc-time")
+              .append(
+                `<img src=/assets/${event.icon} class="event-img"/>`
+              );
           }
         },
       });
