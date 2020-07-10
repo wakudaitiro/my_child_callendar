@@ -110,7 +110,8 @@ $(document).ready(function () {
             element
               .find(".fc-time")
               .append(
-                '<img src=/assets/' + event.icon + ' class="event-img"/>'
+                // '<img src=/assets/' + event.icon + ' class="event-img"/>'
+                '<img src=/images/' + event.icon + ' class="event-img"/>'
               );
           }
         },
