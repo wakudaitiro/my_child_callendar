@@ -15,6 +15,7 @@
 //= require jquery
 //= require rails-ujs
 //= require bootstrap-sprockets
+//= require tempusdominus-bootstrap-4.js
 //= require popper
 //= require moment
 //= require moment/ja.js

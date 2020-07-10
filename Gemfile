@@ -34,5 +34,5 @@ gem 'jquery-rails'
 gem 'devise', '~> 4.6.1'
 gem 'fullcalendar-rails'
 gem 'bootstrap4-datetime-picker-rails'
-gem 'momentjs-rails' 
+gem 'momentjs-rails'
 gem "chartkick"
