@@ -30,6 +30,10 @@ class EventsController < ApplicationController
     @event.destroy
   end
 
+  def statics
+    # @day_count = @events.group('HOUR(created_at)').count
+  end
+
   private
     def set_event
       @event = Event.find(params[:id])
