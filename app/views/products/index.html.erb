@@ -1,2 +1,10 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<h1>ベビー商品検索</h1>
+<div class='content'>
+	<div id="search-box">
+		<%= form_tag(products_path, method: :get) do %>
+			<%= label_tag :keyword, 'キーワード検索'%>
+			<%= text_field_tag "keyword", params[:keyword], placeholder: "キーワードを打ち込んでください", style: "width: 200px;"%>
+			<%= submit_tag('検索結果を表示') %>
+		<% end %>
+	</div>
+</div>

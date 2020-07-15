@@ -1,2 +1,25 @@
-<h1>Products#search</h1>
-<p>Find me in app/views/products/search.html.erb</p>
+
+<h2 class="center">検索結果</h2>
+<div class="container-fluid">
+  <table id="productSizes" class="table table-bordered table-hover ">
+    <thead>
+      <tr>
+        <th class ="narrow">番号</th>
+        <th class ="wide">商品名</th>
+        <th class ="narrow">画像</th>
+        <th class ="narrow">値段</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% i = 1 %>
+      <% @items.each do |item| %>
+        <tr>
+        　<td class ="narrow"><%= i %></td><% i += 1 %>
+        　<td class ="wide"><a href="<%= item['itemUrl'] %>" target="_blank"><%= item['itemName'] %></a></td>
+          <td class ="narrow"><img class=" img-fluid" src="<%= item['mediumImageUrls'][0] %>"></td>
+          <td class ="narrow"><%= item['itemPrice'] %>円</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
