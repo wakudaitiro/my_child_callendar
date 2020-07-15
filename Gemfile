@@ -36,3 +36,5 @@ gem 'fullcalendar-rails'
 gem 'bootstrap4-datetime-picker-rails'
 gem 'momentjs-rails'
 gem "chartkick"
+gem 'rakuten_web_service'
+gem 'dotenv-rails'
