@@ -124,25 +124,55 @@ $(document).ready(function () {
   };
   $(document).on("turbolinks:load", initialize_calendar);
 
-  
-});
-
-  // ------------------------------------------------------- //
-  // Chart
-  // ------------------------------------------------------ //
-
-$(document).ready(function () {
   function allRemove() {
     $('#milk-graph').hide();
     $('#pee-graph').hide();
     $('#poo-graph').hide();
   };
-
+  
   allRemove();
   $('#milk-graph').show();
-
+  
   $('.switch-graph').click(function() { 
     allRemove();
     $('#'+$(this).attr('id')+'-graph').show();
   }); 
+
+
+
 });
+
+  // ------------------------------------------------------- //
+  // Chart
+  // ------------------------------------------------------ //
+  
+//   $(document).ready(function () {
+// });
+  
+  
+  
+  
+  $(document).on('turbolinks:load', function(){
+    
+    function allRemove() {
+      $('#milk-graph').hide();
+      $('#pee-graph').hide();
+      $('#poo-graph').hide();
+    };
+  
+    allRemove();
+    $('#milk-graph').show();
+  
+    $('.switch-graph').click(function() { 
+      allRemove();
+      $('#'+$(this).attr('id')+'-graph').show();
+    }); 
+    
+});
+
+// submit自動送信
+// jQuery(document).bind('ready ajaxComplete', function() {
+//   $('.select-drop').change(function() {
+//       $(this).parent().submit();
+//     });
+// });

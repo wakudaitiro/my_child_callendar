@@ -1,8 +1,8 @@
-<div class="container">
-  <h2 class="mb-4">一週間分の回数</h2>
-  <div type="button" class="switch-graph mb-4 btn btn-outline-success" id="milk">ミルク</div>
-  <div type="button" class="switch-graph mb-4 btn btn-outline-success" id="pee">おしっこ</div>
-  <div type="button" class="switch-graph mb-4 btn btn-outline-success" id="poo">うんち</div>
+<%= column_chart @milk %>
+<div class="container p-5">
+  <div type="button" class="switch-graph mb-2 btn btn-outline-success" id="milk">ミルク</div>
+  <div type="button" class="switch-graph mb-2 btn btn-outline-success" id="pee">おしっこ</div>
+  <div type="button" class="switch-graph mb-2 btn btn-outline-success" id="poo">うんち</div>
   <%= column_chart @milk, title: "ミルクの回数", xtitle: "日付", ytitle: "回数", height: "400px", id: "milk-graph" %>
   <%= column_chart @pee, title: "おしっこの回数", xtitle: "日付", ytitle: "回数", height: "400px", id: "pee-graph" %>
   <%= column_chart @poo, title: "うんちの回数", xtitle: "日付", ytitle: "回数", height: "400px", id: "poo-graph" %>

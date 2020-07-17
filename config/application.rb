@@ -23,7 +23,7 @@ module MyChildCallendar
     config.load_defaults 5.2
     config.time_zone = 'Asia/Tokyo'
     config.i18n.default_locale = :ja
-    config.active_record.default_timezone = :local
+    config.active_record.default_timezone = :utc
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
