@@ -29,19 +29,11 @@ class EventsController < ApplicationController
   end
 
   def statics
-    # @milk = Event.milk_count::rows
-    # @pee = Event.pee_count::rows
-    # @poo = Event.poo_count::rows
-    # @milk = Event.order('start').where(icon: 'milk.png').pluck(:start).group_by { |start| I18n.l(start) }
-    # .map do |date,array|
-    #   [date, array.count]
-    # @milk = Event.where(icon: 'milk.png').group_by_day(:start, time_zone: 'Asia/Tokyo', range: (1.weeks.ago + 1.days).midnight..Time.now.end_of_day, format: "%d").count
     @milk = Event.day_count_of_week("milk.png")
-    # @milk = Event.where(icon: 'pee.png')
-    # @milk = Event.where(icon: 'poo.png')
-
-
-    end
+    @breastfeeding = Event.day_count_of_week("breastfeeding.png")
+    @poo = Event.day_count_of_week("poo.png")
+    @pee = Event.day_count_of_week("pee.png")
+  end
 
   private
 

@@ -109,14 +109,12 @@ $(document).ready(function () {
 
         eventRender: function (event, element, start, end) {
           if (event.icon) {
-            element
-              .find(".fc-time")
-              .append(
-                '<img src=/assets/' + event.icon + ' class="event-img"/>'
+            element.find(".fc-time").append(
+              "<img src=/assets/" + event.icon + ' class="event-img"/>'
 
-                // デプロイ用パス
-                // '<img src=/images/' + event.icon + ' class="event-img"/>'
-              );
+              // デプロイ用パス
+              // '<img src=/images/' + event.icon + ' class="event-img"/>'
+            );
           }
         },
       });
@@ -125,54 +123,41 @@ $(document).ready(function () {
   $(document).on("turbolinks:load", initialize_calendar);
 
   function allRemove() {
-    $('#milk-graph').hide();
-    $('#pee-graph').hide();
-    $('#poo-graph').hide();
-  };
-  
+    $("#milk-graph").hide();
+    $("#breastfeeding-graph").hide();
+    $("#poo-graph").hide();
+    $("#pee-graph").hide();
+  }
+
   allRemove();
-  $('#milk-graph').show();
-  
-  $('.switch-graph').click(function() { 
+  $("#milk-graph").show();
+
+  $(".switch-graph").click(function () {
     allRemove();
-    $('#'+$(this).attr('id')+'-graph').show();
-  }); 
-
-
-
+    $("#" + $(this).attr("id") + "-graph").show();
+  });
 });
 
-  // ------------------------------------------------------- //
-  // Chart
-  // ------------------------------------------------------ //
-  
+// ------------------------------------------------------- //
+// Chart
+// ------------------------------------------------------ //
+
 //   $(document).ready(function () {
 // });
-  
-  
-  
-  
-  $(document).on('turbolinks:load', function(){
-    
-    function allRemove() {
-      $('#milk-graph').hide();
-      $('#pee-graph').hide();
-      $('#poo-graph').hide();
-    };
-  
-    allRemove();
-    $('#milk-graph').show();
-  
-    $('.switch-graph').click(function() { 
-      allRemove();
-      $('#'+$(this).attr('id')+'-graph').show();
-    }); 
-    
-});
 
-// submit自動送信
-// jQuery(document).bind('ready ajaxComplete', function() {
-//   $('.select-drop').change(function() {
-//       $(this).parent().submit();
-//     });
-// });
+$(document).on("turbolinks:load", function () {
+  function allRemove() {
+    $("#milk-graph").hide();
+    $("#breastfeeding-graph").hide();
+    $("#poo-graph").hide();
+    $("#pee-graph").hide();
+  }
+
+  allRemove();
+  $("#milk-graph").show();
+
+  $(".switch-graph").click(function () {
+    allRemove();
+    $("#" + $(this).attr("id") + "-graph").show();
+  });
+});
