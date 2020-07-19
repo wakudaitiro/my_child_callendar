@@ -1,0 +1,61 @@
+.profile-wrap{
+  margin:40px 0px;
+}
+
+.round-img{
+  border-radius:50%;
+  width: 120px;
+  height: 120px;
+}
+
+.round-img-for-list{
+  border-radius:50%;
+  width: 50px;
+  height: 50px;
+}
+
+.btn-sticky {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #f7f7f7;
+  border-left: solid 6px #4E4A4A;/*左線*/
+  color: #4E4A4A;/*文字色*/
+  font-weight: bold;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+}
+.btn-sticky:active {
+  box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
+  transform: translateY(2px);
+}
+
+.edit-profile-btn { 
+  margin: 15px 0 0 15px;
+  font-weight: bold;
+  height: 26px;
+  line-height: 26px;
+  padding: 0 26px;
+  font-size: 20px;
+}
+
+.setting {
+  background-image: image-url("parts4.png");
+  background-repeat: no-repeat;
+  height: 24px;
+  width: 24px;
+  background-color: transparent;
+  margin: 18px 0 0 10px;
+  background-size: 22px!important;
+  border: none;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+.listname{
+  font-size: 15px;
+}

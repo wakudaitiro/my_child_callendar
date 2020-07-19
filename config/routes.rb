@@ -1,9 +1,23 @@
 Rails.application.routes.draw do
 
-  # root to: 'visitors#index'
+  get 'users/show'
+  root to: "homes#index"
+  devise_for :users, :controllers => {
+    :registrations => 'users/registrations'
+
+   }
+  get '/users/:id', to: 'users#show', as: 'user'
+  resource :user, only: %i[edit] do
+    collection do
+      patch 'update_password'
+    end
+  end
+
+
+
+  # カレンダー
   get 'index', to: 'visitors#index'
   get 'statics', to: 'events#statics'
-  # get 'products', to: 'products#index'
   get 'search', to: 'products#search'
   resources :events
   resources :products

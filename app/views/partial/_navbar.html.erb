@@ -8,7 +8,7 @@
         <%= link_to "", statics_path, class: "nav-link graph" %>
       </li>
       <li class="nav-item mr-4">
-          <%= link_to "", "#", class: "nav-link profile-icon" %>
+          <%= link_to "", user_path(current_user), class: "nav-link profile-icon" %>
       </li>
     </ul>
     <%= form_with(url: search_path, method: :get, local: true, class: "form-inline my-2 my-lg-0") do |f| %>

@@ -121,21 +121,6 @@ $(document).ready(function () {
     });
   };
   $(document).on("turbolinks:load", initialize_calendar);
-
-  function allRemove() {
-    $("#milk-graph").hide();
-    $("#breastfeeding-graph").hide();
-    $("#poo-graph").hide();
-    $("#pee-graph").hide();
-  }
-
-  allRemove();
-  $("#milk-graph").show();
-
-  $(".switch-graph").click(function () {
-    allRemove();
-    $("#" + $(this).attr("id") + "-graph").show();
-  });
 });
 
 // ------------------------------------------------------- //
