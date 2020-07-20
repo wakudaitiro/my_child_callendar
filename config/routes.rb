@@ -1,17 +1,17 @@
 Rails.application.routes.draw do
 
-  get 'users/show'
   root to: "homes#index"
   devise_for :users, :controllers => {
-    :registrations => 'users/registrations'
+    :registrations => 'users/registrations',
+    :sessions => 'users/sessions'
    }
   get '/users/:id', to: 'users#show', as: 'user'
+  get 'calendar', to: 'users#calendar'
   resource :user, only: %i[edit] do
     collection do
       patch 'update_password'
     end
   end
-
 
   # カレンダー
   get 'index', to: 'visitors#index'
