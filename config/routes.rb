@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   root to: "homes#index"
   devise_for :users, :controllers => {
     :registrations => 'users/registrations'
-
    }
   get '/users/:id', to: 'users#show', as: 'user'
   resource :user, only: %i[edit] do
@@ -12,7 +11,6 @@ Rails.application.routes.draw do
       patch 'update_password'
     end
   end
-
 
 
   # カレンダー
