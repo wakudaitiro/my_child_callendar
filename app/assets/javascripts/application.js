@@ -110,10 +110,10 @@ $(document).ready(function () {
         eventRender: function (event, element, start, end) {
           if (event.icon) {
             element.find(".fc-time").append(
-              "<img src=/assets/" + event.icon + ' class="event-img"/>'
+              // "<img src=/assets/" + event.icon + ' class="event-img"/>'
 
               // デプロイ用パス
-              // '<img src=/images/' + event.icon + ' class="event-img"/>'
+              '<img src=/images/' + event.icon + ' class="event-img"/>'
             );
           }
         },
