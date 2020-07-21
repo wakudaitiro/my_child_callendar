@@ -12,7 +12,7 @@
       </li>
     </ul>
     <%= form_with(url: search_path, method: :get, local: true, class: "form-inline my-2 my-lg-0") do |f| %>
-      <%= f.text_field :keyword, class: "form-control mr-sm-2", placeholder: "欲しい商品を入力" %>
+      <%= f.select :keyword, [['ミルク', '赤ちゃん　ミルク'], ['おむつ', '赤ちゃん　おむつ'], ['おもちゃ','赤ちゃん　おもちゃ'], ['服','赤ちゃん　服']], {}, { class: "form-control mr-sm-2" } %>
       <%= f.submit('検索',class: "btn btn-outline-success my-2 my-sm-0") %>
     <% end %>
   </div>

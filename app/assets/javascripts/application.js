@@ -40,7 +40,7 @@ $(document).ready(function () {
         // },
         timeFormat: "HH:mm",
         businessHours: false,
-        defaultView: "month",
+        defaultView: "agendaDay",
         editable: true,
         events: "/events.json",
         selectHelper: true,

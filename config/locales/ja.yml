@@ -67,7 +67,7 @@ ja:
         other: "約%{count}年"
       over_x_years:
         one:   "1年以上"
-        other: "%{count}年以上"
+        other: "%{count}年以上" 
   devise:
     confirmations:
       confirmed: 'アカウントを登録しました。'
