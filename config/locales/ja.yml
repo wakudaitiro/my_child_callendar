@@ -5,10 +5,14 @@ ja:
   activerecord:
     errors:
       models:
+        username: "ユーザーネーム"
         user:
           attributes:
             name:
               blank: "が入力されていません。"
+            username:
+              blank: "が入力されていません。"
+              taken: "は既に使用されています。"
             email:
               taken: "は既に使用されています。"
               blank: "が入力されていません。"
@@ -32,6 +36,7 @@ ja:
         remember_me: "次回から自動的にログイン"
     models:
       user: "ユーザ"
+      username: "ユーザーネーム"
   datetime:
     distance_in_words:
       half_a_minute: "30秒前後"
