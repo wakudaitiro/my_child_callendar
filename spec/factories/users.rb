@@ -5,10 +5,16 @@ FactoryBot.define do
     sequence(:email) { |n| "test_#{n}@example.com" }
     password { "testuser" }
   end
-  # usernameがないもの
-  factory :invalid_user, class: User do
+
+  factory :noname_user, class: User do
     sequence(:babyname) { |n| "testbaby_#{n}" }
     sequence(:email) { |n| "test_#{n}@example.com" }
     password { "testuser" }
+  end
+  factory :login_user, class: User do
+    username { "login_user" }
+    babyname { "login_baby" }
+    email { "login_test@example.com" }
+    password { "testinguser" }
   end
 end

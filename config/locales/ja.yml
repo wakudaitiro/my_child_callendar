@@ -5,7 +5,6 @@ ja:
   activerecord:
     errors:
       models:
-        username: "ユーザーネーム"
         user:
           attributes:
             name:
@@ -29,14 +28,13 @@ ja:
     attributes:
       user:
         current_password: "現在のパスワード"
-        name: 名前
+        username: "ユーザーネーム"
         email: "メールアドレス"
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "次回から自動的にログイン"
     models:
       user: "ユーザ"
-      username: "ユーザーネーム"
   datetime:
     distance_in_words:
       half_a_minute: "30秒前後"
