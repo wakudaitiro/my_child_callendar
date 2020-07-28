@@ -35,7 +35,6 @@ RSpec.feature 'Users', type: :feature do
     fill_in 'user[current_password]', with: 'testuser1'
     fill_in 'user[password]', with: 'new_testuser1'
     fill_in 'user[password_confirmation]', with: 'new_testuser1'
-    # save_and_open_page
     click_on '変更する'
     login_user.reload
     expect(login_user.valid_password?('testuser1')).to eq(false)
