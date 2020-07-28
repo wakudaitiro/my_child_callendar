@@ -27,7 +27,8 @@ $(document).ready(function () {
   // ------------------------------------------------------- //
   // Calendar
   // ------------------------------------------------------ //
-  var initialize_calendar = function () {
+  $(document).on("turbolinks:load", function () {
+  // var initialize_calendar = function () {
     $("#calendar").each(function () {
       var calendar = $(this);
       calendar.fullCalendar({
@@ -42,11 +43,10 @@ $(document).ready(function () {
         businessHours: false,
         defaultView: "agendaDay",
         editable: true,
-        events: "/events.json",
         selectHelper: true,
         selectable: true,
         ignoreTimezone: false,
-        snapDuration: "00:15:00",
+        snapDuration: "00:30:00",
         header: {
           left: "title",
           center: "month,agendaWeek,agendaDay",
@@ -119,8 +119,8 @@ $(document).ready(function () {
         },
       });
     });
-  };
-  $(document).on("turbolinks:load", initialize_calendar);
+  });
+  // $(document).on("turbolinks:load", initialize_calendar);
 });
 
 // ------------------------------------------------------- //
