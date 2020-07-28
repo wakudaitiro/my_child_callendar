@@ -1,33 +1,35 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "UserAuthentications", type: :request do
+RSpec.describe 'UserAuthentications', type: :request do
   let(:user) { create(:user) }
   let!(:login_user) { create(:login_user) }
   let(:user_params) { attributes_for(:user) }
   let(:login_user_params) { attributes_for(:login_user) }
-  let(:changed_username_params) { attributes_for(:login_user, username: "changed_user") }
-  let(:changed_password_params) { attributes_for(:login_user, current_password: "testinguser", password: "changed_password", password_confirmation: "changed_password") }
-
+  let(:changed_username_params) { attributes_for(:login_user, username: 'changed_user') }
+  # let(:changed_password_params) { attributes_for(:login_user, current_password: "testuser1", password: "changed_password", password_confirmation: "changed_password") }
+  
   describe 'ログイン' do
     it 'ログインしてカレンダーページにリダイレクトされること' do
       post user_session_path, params: { user: login_user_params }
       expect(response).to redirect_to calendar_url
     end
   end
-
+  
   describe 'ユーザー登録' do
     context 'パラメータが正しい場合' do
       subject { post user_registration_path, params: { user: user_params } }
       it 'ユーザー登録が成功すること' do
-        expect{subject}.to change(User, :count).by 1
+        expect { subject }.to change(User, :count).by 1
       end
-
+      
       it 'カレンダーページにリダイレクトされること' do
         is_expected.to redirect_to calendar_url
       end
     end
   end
-
+  
   describe 'ユーザーの更新' do
     subject { get edit_user_registration_path }
     context 'ログインしている場合' do
@@ -38,8 +40,7 @@ RSpec.describe "UserAuthentications", type: :request do
         is_expected.to eq 200
         patch user_registration_path, params: { user: changed_username_params }
         expect(response).to redirect_to user_url(login_user)
-        # binding.pry
-        expect(login_user.reload.username).to eq "changed_user"
+        expect(login_user.reload.username).to eq 'changed_user'
       end
     end
 

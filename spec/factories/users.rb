@@ -11,10 +11,11 @@ FactoryBot.define do
     sequence(:email) { |n| "test_#{n}@example.com" }
     password { "testuser" }
   end
+
   factory :login_user, class: User do
     username { "login_user" }
     babyname { "login_baby" }
     email { "login_test@example.com" }
-    password { "testinguser" }
+    password { "testuser1" }
   end
 end

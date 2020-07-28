@@ -19,6 +19,9 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'spring-commands-rspec'
   gem 'capybara'
+  gem 'webdrivers'
+  gem 'selenium-webdriver'
+  gem 'launchy'
 end
 
 group :development do
