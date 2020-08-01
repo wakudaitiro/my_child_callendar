@@ -41,7 +41,8 @@ $(document).ready(function () {
         // },
         timeFormat: "HH:mm",
         businessHours: false,
-        defaultView: "agendaDay",
+        // defaultView: "agendaDay",
+        defaultView: "month",
         editable: true,
         selectHelper: true,
         selectable: true,
@@ -53,7 +54,7 @@ $(document).ready(function () {
           right: "today prev,next",
         },
         events: "/events.json",
-
+        
         select: function (start, end) {
           $.getScript("/events/new", function () {
             $("datetimepicker7").datetimepicker({

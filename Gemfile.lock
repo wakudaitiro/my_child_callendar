@@ -84,6 +84,8 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.6)
+    crack (0.4.3)
+      safe_yaml (~> 1.0.0)
     crass (1.0.6)
     devise (4.6.2)
       bcrypt (~> 3.0)
@@ -112,6 +114,7 @@ GEM
       activesupport (>= 4.2.0)
     groupdate (5.0.0)
       activesupport (>= 5)
+    hashdiff (1.0.1)
     i18n (1.8.3)
       concurrent-ruby (~> 1.0)
     jbuilder (2.10.0)
@@ -226,6 +229,7 @@ GEM
     rspec-support (3.9.3)
     ruby_dep (1.5.0)
     rubyzip (1.3.0)
+    safe_yaml (1.0.5)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -271,6 +275,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
+    vcr (6.0.0)
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (3.7.0)
@@ -282,6 +287,10 @@ GEM
       nokogiri (~> 1.6)
       rubyzip (~> 1.0)
       selenium-webdriver (~> 3.0)
+    webmock (3.8.3)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+      hashdiff (>= 0.4.0, < 2.0.0)
     websocket-driver (0.7.2)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -319,14 +328,15 @@ DEPENDENCIES
   rakuten_web_service
   rspec-rails
   sass-rails (~> 5.0)
-  selenium-webdriver
   spring
   spring-commands-rspec
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
   uglifier (>= 1.3.0)
+  vcr
   web-console (>= 3.3.0)
   webdrivers
+  webmock
 
 RUBY VERSION
    ruby 2.5.1p57

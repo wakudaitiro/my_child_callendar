@@ -20,8 +20,10 @@ group :development, :test do
   gem 'spring-commands-rspec'
   gem 'capybara'
   gem 'webdrivers'
-  gem 'selenium-webdriver'
+  # gem 'selenium-webdriver'
   gem 'launchy'
+  gem 'webmock', require: false
+  gem 'vcr'
 end
 
 group :development do
