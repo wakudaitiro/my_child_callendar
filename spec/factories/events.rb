@@ -7,6 +7,7 @@ FactoryBot.define do
   end
 
   factory :update_event, class: Event do
+    association :user
     start { "2020-07-27 22:00:00" }
     add_attribute(:end) { "2020-07-27 23:30:00" }
     color { "gray" }
