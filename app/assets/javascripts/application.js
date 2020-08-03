@@ -34,15 +34,9 @@ $(document).ready(function () {
       calendar.fullCalendar({
         themeSystem: "bootstrap4",
         displayEventTime: true,
-        // displayEventEnd: {
-        //   month: true,
-        //   basicWeek:true,
-        //   "Default": true
-        // },
         timeFormat: "HH:mm",
         businessHours: false,
-        // defaultView: "agendaDay",
-        defaultView: "month",
+        defaultView: "agendaDay",
         editable: true,
         selectHelper: true,
         selectable: true,
@@ -54,7 +48,7 @@ $(document).ready(function () {
           right: "today prev,next",
         },
         events: "/events.json",
-        
+
         select: function (start, end) {
           $.getScript("/events/new", function () {
             $("datetimepicker7").datetimepicker({
@@ -111,6 +105,7 @@ $(document).ready(function () {
         eventRender: function (event, element, start, end) {
           if (event.icon) {
             element.find(".fc-time").append(
+              // 開発環境用パス
               // "<img src=/assets/" + event.icon + ' class="event-img"/>'
 
               // デプロイ用パス
@@ -121,27 +116,21 @@ $(document).ready(function () {
       });
     });
   });
-  // $(document).on("turbolinks:load", initialize_calendar);
 });
 
 // ------------------------------------------------------- //
 // Chart
 // ------------------------------------------------------ //
-
-//   $(document).ready(function () {
-// });
-
 $(document).on("turbolinks:load", function () {
   function allRemove() {
     $("#milk-graph").hide();
     $("#breastfeeding-graph").hide();
     $("#poo-graph").hide();
     $("#pee-graph").hide();
-  }
+  };
 
   allRemove();
   $("#milk-graph").show();
-
   $(".switch-graph").click(function () {
     allRemove();
     $("#" + $(this).attr("id") + "-graph").show();

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     :sessions => 'users/sessions'
    }
   get '/users/:id', to: 'users#show', as: 'user'
-  get 'calendar', to: 'users#calendar'
+  get 'calendar', to: 'events#calendar'
   resource :user, only: %i[edit] do
     collection do
       patch 'update_password'
@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   end
 
   # カレンダー
-  get 'index', to: 'visitors#index'
   get 'statics', to: 'events#statics'
   get 'search', to: 'products#search'
   resources :events

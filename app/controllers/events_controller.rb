@@ -8,8 +8,6 @@ class EventsController < ApplicationController
     render json: json.to_json
   end
 
-  def show; end
-
   def new
     @event = Event.new
   end
@@ -18,6 +16,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    @event.user_id = current_user.id
     @event.save
   end
 
@@ -28,6 +27,8 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
   end
+
+  def calendar; end
 
   def statics
     @milk = Event.day_count_of_week("milk.png")
