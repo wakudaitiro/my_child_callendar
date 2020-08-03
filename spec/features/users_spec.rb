@@ -7,7 +7,7 @@ RSpec.feature 'Users', type: :feature do
 
   scenario 'ユーザー登録ができること' do
     visit root_path
-    click_link '仮のボタンです'
+    click_link '楽に育児管理をはじめよう！'
     expect(page).to have_http_status :ok
     click_link '登録する'
       expect {
