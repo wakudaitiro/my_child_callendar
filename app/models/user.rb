@@ -3,6 +3,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :username, uniqueness: true, presence: true, length: { maximum: 30 }
+  validates :babyname, presence: true, length: { maximum: 30 }
 
   def update_without_current_password(params, *options)
     params.delete(:current_password)
