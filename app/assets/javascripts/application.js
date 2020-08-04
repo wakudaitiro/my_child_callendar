@@ -20,5 +20,5 @@
 //= require moment/ja.js
 //= require chartkick
 //= require Chart.bundle
-//= require js/fullcalendar
+//= require js/custom
 //= require_tree .

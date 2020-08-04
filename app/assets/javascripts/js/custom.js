@@ -4,7 +4,6 @@ $(document).ready(function () {
   // Calendar
   // ------------------------------------------------------ //
   $(document).on("turbolinks:load", function () {
-  // var initialize_calendar = function () {
     $("#calendar").each(function () {
       var calendar = $(this);
       calendar.fullCalendar({
@@ -27,10 +26,7 @@ $(document).ready(function () {
 
         select: function (start, end) {
           $.getScript("/events/new", function () {
-            $("datetimepicker7").datetimepicker({
-              // useCurrent: false,
-              // slideBySide: true,
-            });
+            $("datetimepicker7").datetimepicker({});
             $("#datetimepicker8").datetimepicker({
               useCurrent: false,
             });
@@ -78,12 +74,13 @@ $(document).ready(function () {
           });
         },
 
+
+
         eventRender: function (event, element, start, end) {
           if (event.icon) {
             element.find(".fc-time").append(
               // 開発環境用パス
               // "<img src=/assets/" + event.icon + ' class="event-img"/>'
-
               // デプロイ用パス
               '<img src=/images/' + event.icon + ' class="event-img"/>'
             );
