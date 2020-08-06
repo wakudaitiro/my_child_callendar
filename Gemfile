@@ -24,6 +24,7 @@ group :development, :test do
   gem 'launchy'
   gem 'webmock', require: false
   gem 'vcr'
+  gem "rspec_junit_formatter"
 end
 
 group :development do
