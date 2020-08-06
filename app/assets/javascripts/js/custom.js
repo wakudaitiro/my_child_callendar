@@ -11,7 +11,7 @@ $(document).ready(function () {
         displayEventTime: true,
         timeFormat: "HH:mm",
         businessHours: false,
-        defaultView: "agendaDay",
+        defaultView: "agendaWeek",
         editable: true,
         selectHelper: true,
         selectable: true,
