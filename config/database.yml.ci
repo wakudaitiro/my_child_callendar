@@ -3,6 +3,6 @@ test:
   encoding: unicode
   pool: 5
   username: 'postgres'
-  port: 3306
+  port: 5432
   host: '127.0.0.1'
   database: my_child_callendar_test
