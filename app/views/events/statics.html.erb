@@ -1,0 +1,10 @@
+<div class="container p-5">
+  <div type="button" class="switch-graph mb-2 btn btn-success" id="milk">ミルク</div>
+  <div type="button" class="switch-graph mb-2 btn btn-warning" id="breastfeeding">母乳</div>
+  <div type="button" class="switch-graph mb-2 btn btn-info" id="poo">うんち</div>
+  <div type="button" class="switch-graph mb-2 btn btn-primary" id="pee">おしっこ</div>
+  <%= column_chart @milk, title: "ミルクの回数", xtitle: "日付", ytitle: "回数", height: "400px", id: "milk-graph", colors: ["#28A744"] %>
+  <%= column_chart @breastfeeding, title: "授乳回数", xtitle: "日付", ytitle: "回数", height: "400px", id: "breastfeeding-graph", colors: ["#f1da16"] %>
+  <%= column_chart @poo, title: "うんちの回数", xtitle: "日付", ytitle: "回数", height: "400px", id: "poo-graph", colors: ["#13A3B8"] %>
+  <%= column_chart @pee, title: "おしっこの回数", xtitle: "日付", ytitle: "回数", height: "400px", id: "pee-graph" %>
+</div>

@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <ul class="navbar-nav  mr-auto">
+      <li class="nav-item mr-4">
+        <%= link_to "", calendar_path, class: "nav-link calendar", alt: "カレンダー" %>
+      </li>
+      <li class="nav-item mr-4">
+        <%= link_to "", statics_path, class: "nav-link graph", alt: "グラフ" %>
+      </li>
+      <li class="nav-item mr-4">
+          <%= link_to "", user_path(current_user), class: "nav-link profile-icon", id: "プロフィール" %>
+      </li>
+    </ul>
+    <%= form_with(url: search_path, method: :get, local: true, class: "form-inline my-2 my-lg-0") do |f| %>
+      <%= f.select :keyword, [['ミルク', '赤ちゃん　ミルク'], ['おむつ', '赤ちゃん　おむつ'], ['おもちゃ','赤ちゃん　おもちゃ'], ['服','赤ちゃん　服']], {}, { class: "form-control mr-sm-2" } %>
+      <%= f.submit('検索',class: "btn btn-outline-success my-2 my-sm-0") %>
+    <% end %>
+  </div>
+</nav>

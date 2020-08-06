@@ -1,0 +1,38 @@
+<div class="form-group field">
+  <%= form_with(model: @event, remote: true) do |f| %>
+    <div class="form-inputs">
+      <div class="form-group">
+        <%= f.label :icon, "お世話内容", class: "form-control-label"%>
+        <%= f.select :icon, [['ミルク', 'milk.png'], ['母乳', 'breastfeeding.png'], ['おしっこ', 'pee.png'], ['うんち', 'poo.png']], { selected: event.icon }, { class: "form-control input-icon" } %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :color, "色", class: "form-control-label"%>
+        <%= f.select :color, [['グレー', 'gray'], ['緑', 'teal'], ['オレンジ','orange']], { selected: '緑'  }, { class: "form-control" } %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :start, "開始時間", class: "form-control-label"%>
+        <div class="input-group date" id="datetimepicker7" data-target-input="nearest">
+          <%= f.text_field :start, class: "form-control input-start", id: "datetimepicker7", data: { target: "#datetimepicker7", toggle: "datetimepicker" } %>
+        </div>
+      </div>
+
+      <div class="form-group"> 
+        <%= f.label :end, "終了時間", class: "form-control-label"%>
+        <div class="input-group date" id="datetimepicker8" data-target-input="nearest">
+          <%= f.text_field :end, class: "form-control input-end", id: "datetimepicker8", data: { target: "#datetimepicker8", toggle: "datetimepicker" } %>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer actions">
+      <%= f.submit "入力完了", class: "btn btn-primary" %>
+      <%= link_to '削除',
+                  event,
+                  method: :delete,
+                  class: 'btn btn-danger',
+                  data: { confirm: '削除してもよろしいですか?' },
+                  remote: true unless @event.new_record? %>
+    </div>
+  <% end %>
+</div>

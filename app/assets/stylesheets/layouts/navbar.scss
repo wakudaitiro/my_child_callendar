@@ -1,0 +1,42 @@
+.navbar {
+  background-color: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
+  height: 77px;
+}
+// &__brand {
+//   height: 35px;
+//   width: 176px;
+//   background-size: 114px;
+// }
+.calendar {
+  background-repeat: no-repeat;
+  background-image: image-url("calendar.png");
+  background-size: cover;
+  height: 50px;
+  width: 50px;
+}
+.graph {
+  background-repeat: no-repeat;
+  background-image: image-url("graph.png");
+  background-size: cover;
+  height: 50px;
+  width: 50px;
+}
+li {
+  margin-left: 10px;
+}
+
+.profile-icon {
+  background-repeat: no-repeat;
+  background-image: image-url("profile.png");
+  background-size: cover;
+  height: 50px;
+  width: 50px;
+}
+
+.commonNavIcon {
+  height: 24px;
+  width: 24px;
+  background-size: 22px !important;
+  background-repeat: no-repeat;
+}

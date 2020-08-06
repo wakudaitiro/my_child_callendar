@@ -42,8 +42,10 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    addressable (2.7.0)
+      public_suffix (>= 2.0.2, < 5.0)
     arel (9.0.0)
-    autoprefixer-rails (9.7.6)
+    autoprefixer-rails (9.8.4)
       execjs
     bcrypt (3.1.13)
     better_errors (2.7.1)
@@ -57,8 +59,22 @@ GEM
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 1.14.3, < 2)
       sassc-rails (>= 2.0.0)
+    bootstrap4-datetime-picker-rails (0.3.1)
+      jquery-rails (~> 4.2, >= 4.2.0)
+      moment-timezone-rails (~> 1.0)
+      momentjs-rails (>= 2.10.5, <= 3.0.0)
     builder (3.2.4)
     byebug (11.1.3)
+    capybara (3.33.0)
+      addressable
+      mini_mime (>= 0.1.3)
+      nokogiri (~> 1.8)
+      rack (>= 1.6.0)
+      rack-test (>= 0.6.3)
+      regexp_parser (~> 1.5)
+      xpath (~> 3.2)
+    chartkick (3.3.1)
+    childprocess (3.0.0)
     coderay (1.1.3)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -68,6 +84,8 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.6)
+    crack (0.4.3)
+      safe_yaml (~> 1.0.0)
     crass (1.0.6)
     devise (4.6.2)
       bcrypt (~> 3.0)
@@ -76,6 +94,10 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.3)
+    dotenv (2.7.6)
+    dotenv-rails (2.7.6)
+      dotenv (= 2.7.6)
+      railties (>= 3.2)
     erubi (1.9.0)
     execjs (2.7.0)
     factory_bot (5.2.0)
@@ -90,6 +112,9 @@ GEM
       momentjs-rails (>= 2.9.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    groupdate (5.0.0)
+      activesupport (>= 5)
+    hashdiff (1.0.1)
     i18n (1.8.3)
       concurrent-ruby (~> 1.0)
     jbuilder (2.10.0)
@@ -100,6 +125,20 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
+    kaminari (1.2.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.2.1)
+      kaminari-activerecord (= 1.2.1)
+      kaminari-core (= 1.2.1)
+    kaminari-actionview (1.2.1)
+      actionview
+      kaminari-core (= 1.2.1)
+    kaminari-activerecord (1.2.1)
+      activerecord
+      kaminari-core (= 1.2.1)
+    kaminari-core (1.2.1)
+    launchy (2.5.0)
+      addressable (~> 2.7)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -116,6 +155,8 @@ GEM
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.1)
+    moment-timezone-rails (1.0.0)
+      momentjs-rails (>= 2.10.5, <= 3.0.0)
     momentjs-rails (2.20.1)
       railties (>= 3.1)
     msgpack (1.3.3)
@@ -130,6 +171,7 @@ GEM
       method_source (~> 1.0)
     pry-rails (0.3.9)
       pry (>= 0.10.4)
+    public_suffix (4.0.5)
     puma (3.12.6)
     rack (2.2.3)
     rack-test (1.1.0)
@@ -160,9 +202,11 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.19.0, < 2.0)
     rake (13.0.1)
+    rakuten_web_service (1.12.0)
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    regexp_parser (1.7.1)
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -184,6 +228,8 @@ GEM
       rspec-support (~> 3.9)
     rspec-support (3.9.3)
     ruby_dep (1.5.0)
+    rubyzip (1.3.0)
+    safe_yaml (1.0.5)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -203,10 +249,12 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    simple_form (5.0.2)
-      actionpack (>= 5.0)
-      activemodel (>= 5.0)
+    selenium-webdriver (3.142.7)
+      childprocess (>= 0.5, < 4.0)
+      rubyzip (>= 1.2.2)
     spring (2.1.0)
+    spring-commands-rspec (1.0.4)
+      spring (>= 0.9.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
       spring (>= 1.2, < 3.0)
@@ -227,6 +275,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
+    vcr (6.0.0)
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (3.7.0)
@@ -234,9 +283,19 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
+    webdrivers (3.9.4)
+      nokogiri (~> 1.6)
+      rubyzip (~> 1.0)
+      selenium-webdriver (~> 3.0)
+    webmock (3.8.3)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+      hashdiff (>= 0.4.0, < 2.0.0)
     websocket-driver (0.7.2)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    xpath (3.2.0)
+      nokogiri (~> 1.8)
 
 PLATFORMS
   ruby
@@ -245,13 +304,20 @@ DEPENDENCIES
   better_errors
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.4.1)
+  bootstrap4-datetime-picker-rails
   byebug
+  capybara
+  chartkick
   coffee-rails (~> 4.2)
   devise (~> 4.6.1)
+  dotenv-rails
   factory_bot_rails
   fullcalendar-rails
+  groupdate
   jbuilder (~> 2.5)
   jquery-rails
+  kaminari
+  launchy
   listen (>= 3.0.5, < 3.2)
   momentjs-rails
   pg (>= 0.18, < 2.0)
@@ -259,14 +325,18 @@ DEPENDENCIES
   puma (~> 3.11)
   rails (~> 5.2.4, >= 5.2.4.3)
   rails_layout
+  rakuten_web_service
   rspec-rails
   sass-rails (~> 5.0)
-  simple_form
   spring
+  spring-commands-rspec
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
   uglifier (>= 1.3.0)
+  vcr
   web-console (>= 3.3.0)
+  webdrivers
+  webmock
 
 RUBY VERSION
    ruby 2.5.1p57

@@ -17,6 +17,13 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'spring-commands-rspec'
+  gem 'capybara'
+  gem 'webdrivers'
+  # gem 'selenium-webdriver'
+  gem 'launchy'
+  gem 'webmock', require: false
+  gem 'vcr'
 end
 
 group :development do
@@ -30,7 +37,13 @@ end
 
 gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails'
-gem 'simple_form'
+# gem 'simple_form'
 gem 'devise', '~> 4.6.1'
 gem 'fullcalendar-rails'
+gem 'bootstrap4-datetime-picker-rails'
 gem 'momentjs-rails'
+gem "chartkick"
+gem 'rakuten_web_service'
+gem 'dotenv-rails'
+gem 'groupdate'
+gem 'kaminari'
