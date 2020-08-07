@@ -1,7 +1,7 @@
 require 'rails_helper'
 require 'webmock/rspec'
 
-RSpec.feature "Events", type: :feature do
+RSpec.feature 'Events', type: :feature do
   let!(:event_user) { create(:event_user) }
   before do
     WebMock.enable!
@@ -13,7 +13,7 @@ RSpec.feature "Events", type: :feature do
       headers: { 'Content-Type' => 'application/json' }
     )
   end
-  
+
   scenario '楽天の検索結果が表示されること' do
     sign_in event_user
     visit calendar_path

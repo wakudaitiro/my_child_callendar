@@ -30,9 +30,9 @@ RSpec.describe 'UserAuthentications', type: :request do
   describe 'ユーザー登録' do
     context 'パラメータが正しい場合' do
       it 'ユーザー登録が成功、カレンダーページへリダクレくとされること' do
-        expect {
+        expect do
           post user_registration_path, params: { user: user_params }
-        }.to change(User, :count).by 1
+        end.to change(User, :count).by 1
         expect(response).to redirect_to calendar_url
       end
     end
@@ -40,9 +40,9 @@ RSpec.describe 'UserAuthentications', type: :request do
     context 'パラメータが不正な場合' do
       it 'ユーザー登録されない、ページ遷移しないこと' do
         post user_registration_path, params: { user: login_user_params }
-        expect {
+        expect do
           post user_registration_path, params: { user: login_user_params }
-        }.to change(User, :count).by 0
+        end.to change(User, :count).by 0
         expect(response.status).to eq 200
       end
     end

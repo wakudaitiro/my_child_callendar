@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Events", type: :request do
+RSpec.describe 'Events', type: :request do
   let(:event_user) { create(:event_user) }
   let(:event) { create(:event) }
   let!(:update_event) { create(:update_event) }
