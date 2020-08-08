@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  build: # our first job, named "build"
+  rspec:
     docker:
     - image: circleci/ruby:2.5.1-node # use a tailored CircleCI docker image.
       environment:
@@ -8,14 +8,13 @@ jobs:
         - RAILS_ENV: 'test'
     - image: circleci/postgres:12.1
       environment:
-        # POSTGRES_DB: my_child_callendar_test
         - POSTGRES_ALLOW_EMPTY_PASSWORD: 'true'
         - POSTGRES_ROOT_HOST: '127.0.0.1'
 
     working_directory: ~/my_child_callendar
 
     steps:
-      - checkout # pull down our git code.
+      - checkout
 
       - restore_cache:
           keys:
@@ -65,7 +64,87 @@ jobs:
           path: /tmp/test-results
           destination: test-results
 
+  rubocop:
+    working_directory: ~/my_child_callendar
+    docker:
+      - image: circleci/ruby:2.5.1-node
+        environment:
+          RAILS_ENV: test
+          POSTGRES_HOST: 127.0.0.1
+      - image: circleci/postgres:12.1
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_DB: my_child_callendar_test
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            - v1-dependencies-
+      - run: gem install bundler -v 2.1.4
+      - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+      - run:
+          name: Rubocop
+          command: bundle exec rubocop
+
+  heroku_deploy:
+    docker:
+    - image: circleci/ruby:2.5.1-node # use a tailored CircleCI docker image.
+      environment:
+        - BUNDLER_VERSION: 2.1.4
+        - RAILS_ENV: 'test'
+    - image: circleci/postgres:12.1
+      environment:
+        - POSTGRES_ALLOW_EMPTY_PASSWORD: 'true'
+        - POSTGRES_ROOT_HOST: '127.0.0.1'
+
+    working_directory: ~/my_child_callendar
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            - v1-dependencies-
+
+      - run:
+          name: install dependencies
+          command: |
+            gem install bundler -v 2.1.4
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+
+      - save_cache:
+          paths:
+          - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+
+      # Database setup
+      - run: mv ./config/database.yml.ci ./config/database.yml
+
+      # Database setup
+      - run:
+          name: Databasesetup
+          command: |
+            bundle exec rake db:create
+            bundle exec rake db:schema:load
+
       - deploy:
           name: Deploy Master to Heroku
           command: |
               git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
+
+workflows:
+  version: 2.1
+  build:
+    jobs:
+      - rspec
+      - rubocop
+      - heroku_deploy:
+          requires:
+            - rspec
+            - rubocop
