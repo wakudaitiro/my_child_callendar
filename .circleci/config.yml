@@ -81,8 +81,11 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "Gemfile.lock" }}
             - v1-dependencies-
-      - run: gem install bundler -v 2.1.4
-      - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - run:
+          name: install dependencies
+          command: |
+            gem install bundler -v 2.1.4
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
       - save_cache:
           paths:
             - ./vendor/bundle
@@ -138,13 +141,3 @@ jobs:
           command: |
               git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
 
-workflows:
-  version: 2.1
-  build:
-    jobs:
-      - rspec
-      - rubocop
-      - heroku_deploy:
-          requires:
-            - rspec
-            - rubocop
