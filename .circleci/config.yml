@@ -81,11 +81,10 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "Gemfile.lock" }}
             - v1-dependencies-
+      - run: bundle config --local path vendor/bundle
       - run:
-          name: install dependencies
-          command: |
-            gem install bundler -v 2.1.4
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
+          name: bundle install
+          command: bundle check || bundle install --jobs=8 --clean
       - save_cache:
           paths:
             - ./vendor/bundle
