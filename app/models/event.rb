@@ -6,6 +6,7 @@ class Event < ApplicationRecord
   end
 
   def self.day_count_of_week(icon)
-    where(icon: icon).group_by_day(:start, time_zone: 'Asia/Tokyo', range: (1.week.ago + 1.day).midnight..Time.zone.now.end_of_day, format: '%d').count
+    week_range = (1.week.ago + 1.day).midnight..Time.zone.now.end_of_day
+    where(icon: icon).group_by_day(:start, time_zone: 'Asia/Tokyo', range: week_range, format: '%d').count
   end
 end
