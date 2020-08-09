@@ -7,7 +7,8 @@ services:
     volumes:
       - postgresql-data:/var/lib/postgresql/data
     environment:
-      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER: 'postgres'
+      - POSTGRES_PASSWORD: 'password'
   web:
     build:
       context: .
@@ -22,5 +23,5 @@ services:
     volumes:
       - .:/my_child_callendar
 volumes:
-  postgresql-data:  
+  postgresql-data:
     driver: local

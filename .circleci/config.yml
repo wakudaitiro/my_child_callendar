@@ -8,7 +8,8 @@ jobs:
         - RAILS_ENV: 'test'
     - image: circleci/postgres:12.1
       environment:
-        - POSTGRES_ALLOW_EMPTY_PASSWORD: 'true'
+        - POSTGRES_USER: username
+        - POSTGRES_PASSWORD: password
         - POSTGRES_ROOT_HOST: '127.0.0.1'
 
     working_directory: ~/my_child_callendar
@@ -72,8 +73,9 @@ jobs:
           - RAILS_ENV: 'test'
       - image: circleci/postgres:12.1
         environment:
-          - POSTGRES_ALLOW_EMPTY_PASSWORD: 'true'
-          - POSTGRES_ROOT_HOST: '127.0.0.1'
+        - POSTGRES_USER: username
+        - POSTGRES_PASSWORD: password
+        - POSTGRES_ROOT_HOST: '127.0.0.1'
 
     working_directory: ~/my_child_callendar
 
@@ -109,7 +111,8 @@ jobs:
 
     - image: circleci/postgres:12.1
       environment:
-        - POSTGRES_ALLOW_EMPTY_PASSWORD: 'true'
+        - POSTGRES_USER: username
+        - POSTGRES_PASSWORD: password
         - POSTGRES_ROOT_HOST: '127.0.0.1'
 
     working_directory: ~/my_child_callendar

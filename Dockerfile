@@ -12,7 +12,7 @@ ADD Gemfile.lock /my_child_callendar/Gemfile.lock
 RUN \
   gem update --system --quiet && \
   gem install  bundler -v '~> 2.1.4'
-  
+
 ENV BUNDLER_VERSION 2.1.4
 
 RUN bundle install
