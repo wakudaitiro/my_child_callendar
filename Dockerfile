@@ -8,7 +8,6 @@ WORKDIR /my_child_callendar
 ADD Gemfile /my_child_callendar/Gemfile
 ADD Gemfile.lock /my_child_callendar/Gemfile.lock
 
-
 RUN \
   gem update --system --quiet && \
   gem install  bundler -v '~> 2.1.4'

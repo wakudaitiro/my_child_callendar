@@ -2,15 +2,15 @@ version: 2.1
 jobs:
   rspec:
     docker:
-    - image: circleci/ruby:2.5.1-node # use a tailored CircleCI docker image.
-      environment:
-        - BUNDLER_VERSION: 2.1.4
-        - RAILS_ENV: 'test'
-    - image: circleci/postgres:12.1
-      environment:
-        - POSTGRES_USER: username
-        - POSTGRES_PASSWORD: password
-        - POSTGRES_ROOT_HOST: '127.0.0.1'
+      - image: circleci/ruby:2.5.1-node # use a tailored CircleCI docker image.
+        environment:
+          - BUNDLER_VERSION: 2.1.4
+          - RAILS_ENV: 'test'
+      - image: circleci/postgres:12.1
+        environment:
+          POSTGRES_USER: username
+          POSTGRES_PASSWORD: password
+          POSTGRES_ROOT_HOST: '127.0.0.1'
 
     working_directory: ~/my_child_callendar
 
@@ -30,7 +30,7 @@ jobs:
 
       - save_cache:
           paths:
-          - ./vendor/bundle
+            - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
       # Database setup
@@ -73,9 +73,9 @@ jobs:
           - RAILS_ENV: 'test'
       - image: circleci/postgres:12.1
         environment:
-        - POSTGRES_USER: username
-        - POSTGRES_PASSWORD: password
-        - POSTGRES_ROOT_HOST: '127.0.0.1'
+          POSTGRES_USER: username
+          POSTGRES_PASSWORD: password
+          POSTGRES_ROOT_HOST: '127.0.0.1'
 
     working_directory: ~/my_child_callendar
 
@@ -104,16 +104,16 @@ jobs:
 
   heroku_deploy:
     docker:
-    - image: circleci/ruby:2.5.1-node # use a tailored CircleCI docker image.
-      environment:
-        - BUNDLER_VERSION: 2.1.4
-        - RAILS_ENV: 'test'
+      - image: circleci/ruby:2.5.1-node # use a tailored CircleCI docker image.
+        environment:
+          - BUNDLER_VERSION: 2.1.4
+          - RAILS_ENV: 'test'
 
-    - image: circleci/postgres:12.1
-      environment:
-        - POSTGRES_USER: username
-        - POSTGRES_PASSWORD: password
-        - POSTGRES_ROOT_HOST: '127.0.0.1'
+      - image: circleci/postgres:12.1
+        environment:
+          POSTGRES_USER: username
+          POSTGRES_PASSWORD: password
+          POSTGRES_ROOT_HOST: '127.0.0.1'
 
     working_directory: ~/my_child_callendar
 
@@ -133,7 +133,7 @@ jobs:
 
       - save_cache:
           paths:
-          - ./vendor/bundle
+            - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
       # Database setup
