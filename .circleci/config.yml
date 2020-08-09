@@ -65,7 +65,6 @@ jobs:
           destination: test-results
 
   rubocop:
-    working_directory: ~/my_child_callendar
     docker:
       - image: circleci/ruby:2.5.1-node
         environment:
@@ -75,21 +74,28 @@ jobs:
         environment:
           POSTGRES_USER: postgres
           POSTGRES_DB: my_child_callendar_test
+
+    working_directory: ~/my_child_callendar
+
     steps:
       - checkout
+
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "Gemfile.lock" }}
             - v1-dependencies-
+
       - run:
-          name: update bundler
+          name: install dependencies
           command: |
-            gem update --system
-            gem install bundler
+            gem install bundler -v 2.1.4
+            docker-compose run web bundle install --jobs=4 --retry=3 --path vendor/bundle
+
       - save_cache:
           paths:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+
       - run:
           name: Rubocop
           command: bundle exec rubocop
@@ -100,6 +106,7 @@ jobs:
       environment:
         - BUNDLER_VERSION: 2.1.4
         - RAILS_ENV: 'test'
+
     - image: circleci/postgres:12.1
       environment:
         - POSTGRES_ALLOW_EMPTY_PASSWORD: 'true'
