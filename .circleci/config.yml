@@ -72,11 +72,6 @@ jobs:
           - BUNDLER_VERSION: 2.1.4
           - RAILS_ENV: 'test'
 
-      - image: circleci/postgres:9.6-alpine
-        environment:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: <%= ENV['PG_PASSWORD'] %>
-
     working_directory: ~/my_child_callendar
 
     steps:
