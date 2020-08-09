@@ -68,12 +68,12 @@ jobs:
     docker:
       - image: circleci/ruby:2.5.1-node
         environment:
-          RAILS_ENV: test
-          POSTGRES_HOST: 127.0.0.1
+          - BUNDLER_VERSION: 2.1.4
+          - RAILS_ENV: 'test'
       - image: circleci/postgres:12.1
         environment:
-          POSTGRES_USER: postgres
-          POSTGRES_DB: my_child_callendar_test
+          - POSTGRES_ALLOW_EMPTY_PASSWORD: 'true'
+          - POSTGRES_ROOT_HOST: '127.0.0.1'
 
     working_directory: ~/my_child_callendar
 
