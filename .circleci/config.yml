@@ -10,7 +10,7 @@ jobs:
       - image: circleci/postgres:9.6-alpine
         environment:
           POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: password
+          POSTGRES_PASSWORD: <%= ENV['PG_PASSWORD'] %>
 
     working_directory: ~/my_child_callendar
 
@@ -75,7 +75,7 @@ jobs:
       - image: circleci/postgres:9.6-alpine
         environment:
           POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: password
+          POSTGRES_PASSWORD: <%= ENV['PG_PASSWORD'] %>
 
     working_directory: ~/my_child_callendar
 
@@ -112,7 +112,7 @@ jobs:
       - image: circleci/postgres:9.6-alpine
         environment:
           POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: password
+          POSTGRES_PASSWORD: <%= ENV['PG_PASSWORD'] %>
 
     working_directory: ~/my_child_callendar
 
