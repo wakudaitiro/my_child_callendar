@@ -89,7 +89,7 @@ jobs:
           name: install dependencies
           command: |
             gem install bundler -v 2.1.4
-            docker-compose run web bundle install --jobs=4 --retry=3 --path vendor/bundle
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
 
       - save_cache:
           paths:
