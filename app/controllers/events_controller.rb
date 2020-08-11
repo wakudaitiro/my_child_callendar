@@ -31,10 +31,10 @@ class EventsController < ApplicationController
   def calendar; end
 
   def statics
-    @milk = Event.day_count_of_week("milk.png")
-    @breastfeeding = Event.day_count_of_week("breastfeeding.png")
-    @poo = Event.day_count_of_week("poo.png")
-    @pee = Event.day_count_of_week("pee.png")
+    @milk = Event.day_count_of_week('milk.png')
+    @breastfeeding = Event.day_count_of_week('breastfeeding.png')
+    @poo = Event.day_count_of_week('poo.png')
+    @pee = Event.day_count_of_week('pee.png')
   end
 
   private

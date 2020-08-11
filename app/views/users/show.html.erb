@@ -21,6 +21,7 @@
                 <div class="list-group text-center">
                   <%= link_to "サインアウト", destroy_user_session_path, method: :delete, class: "list-group-item list-group-item-action" %>
                   <%= link_to "パスワードを変更", edit_user_path, method: :get,class: "list-group-item list-group-item-action" %>
+                  <%= link_to "アカウントの削除", registration_path(:user), method: :delete,class: "list-group-item list-group-item-action btn-danger" %>
                   <%= link_to "キャンセル", "#", class: "list-group-item list-group-item-action", "data-dismiss": "modal" %>
                 </div>
               </div>

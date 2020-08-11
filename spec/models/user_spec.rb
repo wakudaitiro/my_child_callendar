@@ -4,11 +4,11 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   let!(:user) { create(:user) }
   describe 'バリデーションの確認' do
-    it 'ユーザーネームが重複する場合のバリデーション' do
-      same_name_user = FactoryBot.build(:user, username: 'testuser_1')
-      same_name_user.valid?
-      expect(same_name_user).to_not be_valid
-      expect(same_name_user.errors[:username]).to include('は既に使用されています。')
+    it 'emailが重複する場合のバリデーション' do
+      same_email_user = FactoryBot.build(:user, email: 'test_1@example.com')
+      same_email_user.valid?
+      expect(same_email_user).to_not be_valid
+      expect(same_email_user.errors[:email]).to include('は既に使用されています。')
     end
 
     it 'ユーザーネームがない場合のバリデーション' do

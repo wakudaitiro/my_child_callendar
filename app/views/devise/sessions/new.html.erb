@@ -1,9 +1,7 @@
 <div class="main">
   <div class="card devise-card">
+    <h2 class="mt-5 text-center">ログイン</h2>
     <div class="form-wrap">
-      <div class="form-group text-center">
-        <h2 class="logo-img mx-auto"></h2>
-      </div>
       <%= form_with scope: resource, as: resource_name, url: session_path(resource_name), local: true do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
         <div class="form-group">
@@ -15,7 +13,7 @@
         </div>
 
         <div class="actions">
-          <%= f.submit "サインインする", class: "btn btn-primary w-100" %>
+          <%= f.submit "ログインする", class: "btn btn-primary w-100" %>
         </div>
       <% end %><br>
       <p class="devise-link">

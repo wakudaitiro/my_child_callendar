@@ -1,5 +1,6 @@
 <div class="main">
   <div class="card devise-card">
+    <h2 class="mt-5">ユーザー登録</h2>
     <div class="form-wrap">
       <%= form_with scope: resource, as: resource_name, url: registration_path(resource_name), local: true do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
@@ -32,7 +33,7 @@
 
       <p class="devise-link">
         アカウントをお持ちですか？
-        <%= link_to "サインインする", new_user_session_path %>
+        <%= link_to "ログインする", new_user_session_path %>
       </p>
     </div>
   </div>
