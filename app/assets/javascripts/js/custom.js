@@ -58,6 +58,22 @@ $(document).ready(function () {
           });
         },
 
+        eventResize: function (event) {
+          var event_data = {
+            event: {
+              id: event.id,
+              start: event.start.format(),
+              end: event.end.format(),
+            },
+          };
+          var update_url = "/events/" + event.id;
+          $.ajax({
+            url: update_url,
+            data: event_data,
+            type: "PATCH",
+          });
+        },
+
         eventClick: function (event, jsEvent, view) {
           var edit_url = "/events/" + event.id + "/edit";
           $.getScript(edit_url, function () {
@@ -73,8 +89,6 @@ $(document).ready(function () {
             });
           });
         },
-
-
 
         eventRender: function (event, element, start, end) {
           if (event.icon) {
